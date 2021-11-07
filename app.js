@@ -43,7 +43,7 @@ app.post('/', (req, res) => {
     
         // Return function results.
         let json_response = {};
-        json_response.recipe = body.recipe;
+        json_response = body;
         json_response.random_array = {"return_index" : return_index_val};
         res.json(json_response);
     } else {
