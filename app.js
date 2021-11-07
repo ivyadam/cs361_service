@@ -37,14 +37,14 @@ app.post('/', (req, res) => {
     // Call random integer function.
     let return_index_val, array_length, body;
     body = JSON.parse(req.body.json)
-    if (body.recipe.random_array.array_length) {
-        array_length = body.recipe.random_array.array_length;
+    if (body.random_array.array_length) {
+        array_length = body.random_array.array_length;
         return_index_val = getRandomInt(array_length);
     
         // Return function results.
         let json_response = {};
         json_response.recipe = body.recipe;
-        json_response.recipe.random_array = {"return_index" : return_index_val};
+        json_response.random_array = {"return_index" : return_index_val};
         res.json(json_response);
     } else {
         res.send('Error: Missing required JSON information.')
