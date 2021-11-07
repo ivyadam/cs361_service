@@ -13,6 +13,7 @@ PORT        = 9924;
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(express.json());
 
 /*  
 Citation for the following function:
@@ -32,18 +33,24 @@ app.get('/test_api', function(req, res)
         res.sendFile(__dirname + "/public/test_api.html")
     });
 
-app.post('/', (req, res) => {
+app.post('/get_random_recipe', (req, res) => {
     // Call random integer function.
-    let return_index_val;
-    return_index_val = getRandomInt(req.body.recipe.random_array.length);
-
-    // Return function results.
-    let json_response;
-    json_response.recipe = req.body.recipe;
-    json_response.recipe.name = req.body.recipe.name;
-    json_response.recipe.recipe_url = req.body.recipe.recipe_url
-    json_response.recipe.random_array = {"return_index" : return_index_val};
-    res.json(json_response);
+    let return_index_val, array_length, body;
+    body = JSON.parse(req.body.json)
+    console.log(body)
+    console.log(body.recipe.random_array.array_length)
+    if (body.recipe.random_array.array_length) {
+        array_length = body.recipe.random_array.array_length;
+        return_index_val = getRandomInt(array_length);
+    
+        // Return function results.
+        let json_response = {};
+        json_response.recipe = body.recipe;
+        json_response.recipe.random_array = {"return_index" : return_index_val};
+        res.json(json_response);
+    } else {
+        res.send('Error: Missing required JSON information.')
+    };    
 });
 
 /*
