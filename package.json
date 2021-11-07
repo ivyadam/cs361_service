@@ -1,0 +1,24 @@
+{
+  "name": "cs361_service",
+  "version": "1.0.0",
+  "description": "service for cs361",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivyadam/cs361_service.git"
+  },
+  "author": "Adam Ivy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivyadam/cs361_service/issues"
+  },
+  "homepage": "https://github.com/ivyadam/cs361_service#readme",
+  "dependencies": {
+    "body": "^5.1.0",
+    "express": "^4.17.1",
+    "forever": "^4.0.1"
+  }
+}
