@@ -5,7 +5,7 @@
 */
 var express = require('express');
 var app     = express();
-PORT        = 9924;
+PORT        = process.env.PORT || 9924;
 
 /* 
     FUNCTIONS
