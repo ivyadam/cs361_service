@@ -37,8 +37,6 @@ app.post('/get_random_recipe', (req, res) => {
     // Call random integer function.
     let return_index_val, array_length, body;
     body = JSON.parse(req.body.json)
-    console.log(body)
-    console.log(body.recipe.random_array.array_length)
     if (body.recipe.random_array.array_length) {
         array_length = body.recipe.random_array.array_length;
         return_index_val = getRandomInt(array_length);
