@@ -33,7 +33,7 @@ app.get('/test_api', function(req, res)
         res.sendFile(__dirname + "/public/test_api.html")
     });
 
-app.post('/get_random_recipe', (req, res) => {
+app.post('/', (req, res) => {
     // Call random integer function.
     let return_index_val, array_length, body;
     body = JSON.parse(req.body.json)
