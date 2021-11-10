@@ -35,15 +35,14 @@ app.get('/test_api', function(req, res)
 
 app.post('/', (req, res) => {
     // Call random integer function.
-    let return_index_val, array_length, body;
-    body = JSON.parse(req.body.json)
-    if (body.random_array.array_length) {
-        array_length = body.random_array.array_length;
+    let return_index_val, array_length;
+    if (req.body.random_array.array_length) {
+        array_length = req.body.random_array.array_length;
         return_index_val = getRandomInt(array_length);
     
         // Return function results.
         let json_response = {};
-        json_response = body;
+        json_response = req.body;
         json_response.random_array = {"return_index" : return_index_val};
         res.json(json_response);
     } else {
